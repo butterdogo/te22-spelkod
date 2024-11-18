@@ -8,7 +8,7 @@ export default class Game {
         this.width = width
         this.height = height
         this.input = new Input(this)
-        this.player = new Player(0, 0, 50, 50, "green", this)
+        this.player = new Player(0, 0, 150, 150, "green", this)
         this.box = new GameObject(40, 100, 200, 200, "purple")
         this.ball = new Ball(100, 200, 100, 100, "red")
     }
