@@ -38,7 +38,7 @@ export default class Player extends GameObject {
       this.speedY = 0
       this.y = 320
       if (this.game.input.keys.has("ArrowUp")) {
-        this.speedY -= 20
+        this.speedY -= 16
       }
       if (this.game.input.keys.has("ArrowRight") && this.game.input.keys.has("ArrowLeft") || !this.game.input.keys.has("ArrowRight") && !this.game.input.keys.has("ArrowLeft") || this.speedX > 0 && this.game.input.keys.has("ArrowLeft") || this.speedX < 0 && this.game.input.keys.has("ArrowRight")) {
         this.speedX *= 0.8
@@ -56,6 +56,8 @@ export default class Player extends GameObject {
     this.x += this.speedX
     this.y += this.speedY
 
+    
+
     if (this.speedX != 0) {
       this.image.src = "./src/assets/duck/walk.png"
       this.maxFrames = 4
@@ -69,7 +71,7 @@ export default class Player extends GameObject {
       this.maxFrames = 4
     }
 
-    if (this.speedY > 0) {
+    if (this.speedY > 1) {
       this.image.src = "./src/assets/duck/fall.png"
       this.maxFrames = 1
     }
@@ -92,15 +94,14 @@ export default class Player extends GameObject {
    
 
 
-
-
-
     // Simulate ground plane
     if (this.y > 320) {
       this.y = 320
       this.speedY = 0
       this.grounded = true
     }
+
+  
 
     if (this.timer > this.interval) {
       this.frameX++

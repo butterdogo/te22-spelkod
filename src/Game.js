@@ -8,20 +8,17 @@ export default class Game {
         this.width = width
         this.height = height
         this.input = new Input(this)
-        this.player = new Player(0, 0, 150, 150, "green", this)
-        this.box = new GameObject(40, 100, 200, 200, "purple")
-        this.ball = new Ball(100, 200, 100, 100, "red")
-    }
+        this.player = new Player(0, 0, 100, 100, "green", this)
+        this.platform = new GameObject(260, 300, 500, 30, "purple")
+        }
 
     update(deltaTime) {
-        this.box.update(deltaTime)
-        this.ball.update(deltaTime)
+        this.platform.update(deltaTime)
         this.player.update(deltaTime)
     }
 
     draw(ctx) {
-        this.box.draw(ctx)
-        this.ball.draw(ctx)
+        this.platform.draw(ctx)
         this.player.draw(ctx)
     }
 }
