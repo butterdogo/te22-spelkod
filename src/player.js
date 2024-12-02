@@ -6,13 +6,13 @@ export default class Player extends GameObject {
     this.game = game
 
     this.image = new Image()
-    this.image.src = "./src/assets/duck/idle.png"
+    this.image.src = "./src/assets/Player.png"
 
-    this.frameWidth = 64
-    this.frameHeight = 64
+    this.frameWidth = 224
+    this.frameHeight = 193
     this.frameX = 0
     this.frameY = 0
-    this.maxFrames = 4
+    this.maxFrames = 1
     this.timer = 0
     this.fps = 20
     this.interval = 1000 / this.fps
@@ -24,7 +24,7 @@ export default class Player extends GameObject {
     this.color = "255, 0, 0"
   }
 
-  update(deltaTime) {
+  async update(deltaTime) {
     if (this.game.input.keys.has("ArrowLeft")) {
       this.speedX -= this.maxSpeedX
       this.flip = true
@@ -56,8 +56,8 @@ export default class Player extends GameObject {
     this.x += this.speedX
     this.y += this.speedY
 
-    
 
+/*
     if (this.speedX != 0) {
       this.image.src = "./src/assets/duck/walk.png"
       this.maxFrames = 4
@@ -79,20 +79,20 @@ export default class Player extends GameObject {
       this.image.src = "./src/assets/duck/crouch.png"
       this.maxFrames = 1
     }
-    if (this.game.input.keys.has("ArrowDown") && this.game.input.keys.has("ArrowRight")) {  
+    if (this.game.input.keys.has("ArrowDown") && this.game.input.keys.has("ArrowRight")) {
       this.image.src = "./src/assets/duck/crawl.png"
       this.maxFrames = 4
     }
-    if (this.game.input.keys.has("ArrowDown") && this.game.input.keys.has("ArrowLeft")) {  
+    if (this.game.input.keys.has("ArrowDown") && this.game.input.keys.has("ArrowLeft")) {
       this.image.src = "./src/assets/duck/crawl.png"
       this.maxFrames = 4
     }
-    if (this.game.input.keys.has("c")){
+    if (this.game.input.keys.has("c")) {
       this.image.src = "./src/assets/duck/right_hook.png"
       this.maxFrames = 4
     }
-   
-
+ 
+*/
 
     // Simulate ground plane
     if (this.y > 320) {
@@ -101,7 +101,7 @@ export default class Player extends GameObject {
       this.grounded = true
     }
 
-  
+
 
     if (this.timer > this.interval) {
       this.frameX++
@@ -117,6 +117,10 @@ export default class Player extends GameObject {
 
   }
 
+
+
+  
+
   draw(ctx) {
 
     //ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -125,6 +129,9 @@ export default class Player extends GameObject {
       ctx.save()
       ctx.scale(-1, 1)
     }
+
+    
+      
 
     ctx.drawImage(
       this.image,
