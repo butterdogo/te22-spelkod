@@ -102,7 +102,6 @@ export default class Player extends GameObject {
     }
 
 
-
     if (this.timer > this.interval) {
       this.frameX++
       this.timer = 0
@@ -113,7 +112,6 @@ export default class Player extends GameObject {
     if (this.frameX >= this.maxFrames) {
       this.frameX = 0
     }
-
 
   }
 
