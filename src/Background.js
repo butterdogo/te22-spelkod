@@ -3,17 +3,13 @@ import Layer from './Layer'
 export default class Background {
   constructor(game) {
     this.game = game
-    this.width = 860
-    this.height = 710
+    this.width = window.innerWidth
+    this.height = window.innerHeight
     this.gameon = true
-    this.timer = 0
-    this.timemin = 0
-    this.timesec = 0
-    this.timemilisec = 0
     this.ml = new Image()
-    this.ml.src = "./src/assets/MG_2.png"
+    this.ml.src = "./src/assets/FG-pixel.png"
     this.sl = new Image()
-    this.sl.src = "./src/assets/BG.png"
+    this.sl.src = "./src/assets/BG-pixel.png"
 
     this.backgroundLayers = [
       new Layer(this.game, this.width, this.height, 0.01, this.sl),

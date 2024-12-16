@@ -6,15 +6,15 @@ export default class Player extends GameObject {
     this.game = game
 
     this.image = new Image()
-    this.image.src = "./src/assets/Player.png"
+    this.image.src = "./src/assets/Player-pixel-2.png"
 
-    this.frameWidth = 224
-    this.frameHeight = 193
+    this.frameWidth = 64
+    this.frameHeight = 64
     this.frameX = 0
     this.frameY = 0
     this.maxFrames = 1
     this.timer = 0
-    this.fps = 20
+    this.fps = 10
     this.interval = 1000 / this.fps
 
     this.speedX = 0
@@ -34,9 +34,9 @@ export default class Player extends GameObject {
       this.flip = false
     }
 
-    if (this.y >= 320) {
+    if (this.y >= 550) {
       this.speedY = 0
-      this.y = 320
+      this.y = 550
       if (this.game.input.keys.has("ArrowUp")) {
         this.speedY -= 16
       }
@@ -95,8 +95,8 @@ export default class Player extends GameObject {
 */
 
     // Simulate ground plane
-    if (this.y > 320) {
-      this.y = 320
+    if (this.y > 550) {
+      this.y = 550
       this.speedY = 0
       this.grounded = true
     }
@@ -112,8 +112,20 @@ export default class Player extends GameObject {
     if (this.frameX >= this.maxFrames) {
       this.frameX = 0
     }
-
+    
+    if (this.speedX == 0) {
+      this.maxFrames = 1
+      this.frameY = 0
+      console.log("idle")
+    }else {
+      this.maxFrames = 3
+      this.frameY = 1
+      console.log("run")
+    }
+  
   }
+
+ 
 
 
 
@@ -126,11 +138,11 @@ export default class Player extends GameObject {
     if (this.flip) {
       ctx.save()
       ctx.scale(-1, 1)
-    }
+    } 
 
     
       
-
+    // bilden, sx, sy, sw, sh, x, y, w, h
     ctx.drawImage(
       this.image,
       this.frameWidth * this.frameX,
