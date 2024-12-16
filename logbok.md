@@ -13,3 +13,9 @@
 1. Jag la in bakgrunden och den nadra grafiken som jag fick från esteteleverna.
 2. fortsätta försöka lägga in en tidtagare
 3. jag vet inte hur man gör
+
+# 16/12 -24
+1. Jag fixade med bakgrunden
+2. Jag sak byta bakgrund till den nya jag har fått. Men då måste jag göra om den till en sprite-sheet
+3. inget
+4. Efter lovet ska jag komma ihåg att vi ska så ihop våra koder och att vi ska fixa kunna byra mellan skärmar
